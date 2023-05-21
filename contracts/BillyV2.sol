@@ -33,4 +33,8 @@ contract BillyV2 is Initializable, ERC20Upgradeable, OwnableUpgradeable {
     function transfer(address _recipient, uint256 _amount) public virtual override onlyWhitelisted(_recipient) returns (bool) {
         return super.transfer(_recipient, _amount);
     }
+
+    function isWhitelisted(address _target) public view returns (bool) {
+        return whitelistedAddresses[_target];
+    }
 }
